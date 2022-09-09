@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="container">
+
+
+    <h2 class="text-center text-success" style="font-size: 5rem">
+        <i class="material-icons" style="font-size: 5rem">
+            check_circle
+        </i>
+        Success
+    </h2>
+
+    <!-- TODO might want to change colors of images -->
+    <img src="../assets/done.png" class="img-fluid"
+         alt="cartoon picture of task completed">
+
+    <div class="d-grid gap-2">
+        <button class="btn btn-secondary" type="button">
+            <i class="material-icons">close</i>
+            close
+        </button>
+    </div>
+</div>
+
+{% endblock %}
