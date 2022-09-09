@@ -1,7 +1,11 @@
 .material-icons {
-    margin-right: 1rem;
+    vertical-align: bottom;
 }
 
 .margin-top {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
+}
+
+.margin-right {
+    margin-right: 1rem;
 }

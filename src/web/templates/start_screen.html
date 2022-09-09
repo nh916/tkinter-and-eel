@@ -1,11 +1,20 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<div class="container">
+
+    <small>
+        Refer to
+        <a href="https://c-accel-cript.github.io/cript-excel-uploader/filling%20out%20config/">
+            documentation
+        </a>
+        for help
+    </small>
 
     <!-- host input -->
     <div class="input-group mb-3 margin-top">
         <span class="input-group-text" id="host-input">
-             <i class="material-icons">dns</i> Host:
+             <i class="material-icons margin-right">dns</i> Host:
         </span>
 
         <input type="text" class="form-control" placeholder="criptapp.org"
@@ -15,7 +24,7 @@
     <!-- api token input -->
     <div class="input-group mb-3 margin-top">
         <span class="input-group-text" id="api-token-input">
-             <i class="material-icons">key</i> API Token:
+             <i class="material-icons margin-right">key</i> API Token:
         </span>
 
         <input type="password" class="form-control"
@@ -26,7 +35,7 @@
     <!-- project name input -->
     <div class="input-group mb-3 margin-top">
         <span class="input-group-text" id="project-name-input">
-             <i class="material-icons">insert_chart</i> Project Name:
+             <i class="material-icons margin-right">insert_chart</i> Project Name:
         </span>
 
         <input type="text" class="form-control" placeholder="My Project Name"
@@ -36,7 +45,7 @@
     <!-- collection name input -->
     <div class="input-group mb-3 margin-top">
         <span class="input-group-text" id="collection-name-input">
-             <i class="material-icons">article</i> Collection Name:
+             <i class="material-icons margin-right">article</i> Collection Name:
         </span>
 
         <input type="text" class="form-control" placeholder="My Collection Name"
@@ -44,18 +53,46 @@
     </div>
 
     <!-- TODO get excel file path and not just file name-->
+    <!-- Excel file path -->
     <div class="mb-3 margin-top">
-        <input class="form-control" type="file" id="formFile" accept="*.xlsx">
+        <input class="form-control" type="file" id="excel-path" accept="*.xlsx">
     </div>
 
-    <!-- TODO button needs to be centered -->
-    <div class="text-center">
+
+    <div>
+        <!-- TODO styling looks a bit off with this part -->
+        <label class="" style="font-size: 1.1rem; font-weight: 500; width: 10rem">
+            Keep my data:
+        </label>
+
+        <!-- data is public -->
+        <div class="form-check form-check-inline">
+            <input id="public-data" class="form-check-input" type="radio"
+                   name="public-data" value="public-data" checked>
+            <label class="form-check-label" for="public-data">
+                <i class="material-icons">public</i>
+                Public
+            </label>
+        </div>
+
+        <!-- data is private -->
+        <div class="form-check form-check-inline">
+            <input id="private-data" class="form-check-input" type="radio"
+                   name="private-data" value="private-data">
+            <label class="form-check-label" for="private-data">
+                <i class="material-icons">lock</i>
+                Private
+            </label>
+        </div>
+    </div>
+
+    <!-- upload button -->
+    <div class="d-grid gap-2" style="margin-top: 1rem;">
         <button type="button" class="btn btn-primary btn-lg margin-top d-flex justify-content-center"
                 style="padding: 0.7rem 7rem 0.7rem 7rem;">
             Upload
         </button>
     </div>
-
 
 </div>
 {% endblock %}
