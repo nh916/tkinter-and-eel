@@ -18,3 +18,13 @@
     padding: 1rem;
     border-radius: 1rem;
 }
+
+.documentation-link {
+    color: #bdbdbd;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    padding: 1rem;
+}
