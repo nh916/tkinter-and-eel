@@ -1,3 +1,7 @@
+body {
+    --cript-primary-color: #4c2a80;
+}
+
 .material-icons {
     vertical-align: bottom;
 }
