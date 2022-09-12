@@ -1,102 +1,107 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<div class="container">
 
-    <!-- host input -->
-    <div class="input-group mb-3 margin-top">
+<!-- return false to prevent refresh-->
+<form onsubmit="runHere(); return false;">
+    <div class="container">
+
+        <!-- host input -->
+        <div class="input-group mb-3 margin-top">
         <span class="input-group-text" id="host-input">
              <i class="material-icons margin-right">dns</i> Host:
         </span>
 
-        <input type="text" class="form-control" placeholder="criptapp.org"
-               aria-label="place host here" aria-describedby="host-input">
-    </div>
+            <input type="text" class="form-control" placeholder="criptapp.org"
+                   aria-label="place host here" aria-describedby="host-input">
+        </div>
 
-    <!-- api token input -->
-    <div class="input-group mb-3 margin-top">
+        <!-- api token input -->
+        <div class="input-group mb-3 margin-top">
         <span class="input-group-text" id="api-token-input" title="Get your key from: https://criptapp.org/security/">
              <i class="material-icons margin-right">key</i> API Token:
         </span>
 
-        <input type="password" class="form-control"
-               placeholder="Token 012345e678910b111213a14151617181b9202122"
-               aria-label="place host here" aria-describedby="api-token-input">
-    </div>
+            <input type="password" class="form-control"
+                   placeholder="Token 012345e678910b111213a14151617181b9202122"
+                   aria-label="place host here" aria-describedby="api-token-input">
+        </div>
 
-    <!-- project name input -->
-    <div class="input-group mb-3 margin-top">
+        <!-- project name input -->
+        <div class="input-group mb-3 margin-top">
         <span class="input-group-text" id="project-name-input">
              <i class="material-icons margin-right">insert_chart</i> Project Name:
         </span>
 
-        <input type="text" class="form-control" placeholder="My Project Name"
-               aria-label="place host here" aria-describedby="project-name-input">
-    </div>
+            <input type="text" class="form-control" placeholder="My Project Name"
+                   aria-label="place host here" aria-describedby="project-name-input">
+        </div>
 
-    <!-- collection name input -->
-    <div class="input-group mb-3 margin-top">
+        <!-- collection name input -->
+        <div class="input-group mb-3 margin-top">
         <span class="input-group-text" id="collection-name-input">
              <i class="material-icons margin-right">article</i> Collection Name:
         </span>
 
-        <input type="text" class="form-control" placeholder="My Collection Name"
-               aria-label="place host here" aria-describedby="collection-name-input">
-    </div>
-
-    <!-- TODO get excel file path and not just file name-->
-    <!-- Excel file path -->
-    <div class="mb-3 margin-top">
-        <input class="form-control" type="file" id="excel-path" accept="*.xlsx">
-    </div>
-
-
-    <div>
-        <!-- TODO styling looks a bit off with this part -->
-        <label class="" style="font-size: 1.1rem; font-weight: 500; width: 10rem">
-            Keep my data:
-        </label>
-
-        <!-- data is public -->
-        <div class="form-check form-check-inline">
-            <input id="public-data" class="form-check-input" type="radio"
-                   name="data-privacy" value="public-data" checked>
-            <label class="form-check-label" for="public-data">
-                <i class="material-icons">public</i>
-                Public
-            </label>
+            <input type="text" class="form-control" placeholder="My Collection Name"
+                   aria-label="place host here" aria-describedby="collection-name-input">
         </div>
 
-        <!-- data is private -->
-        <div class="form-check form-check-inline">
-            <input id="private-data" class="form-check-input" type="radio"
-                   name="data-privacy" value="private-data">
-            <label class="form-check-label" for="private-data">
-                <i class="material-icons">lock</i>
-                Private
-            </label>
+        <!-- TODO get excel file path and not just file name-->
+        <!-- Excel file path -->
+        <div class="mb-3 margin-top">
+            <input class="form-control" type="file" id="excel-path" accept="*.xlsx">
         </div>
+
+
+        <div>
+            <!-- TODO styling looks a bit off with this part -->
+            <label class="" style="font-size: 1.1rem; font-weight: 500; width: 10rem">
+                Keep my data:
+            </label>
+
+            <!-- data is public -->
+            <div class="form-check form-check-inline">
+                <input id="public-data" class="form-check-input" type="radio"
+                       name="data-privacy" value="public-data" checked>
+                <label class="form-check-label" for="public-data">
+                    <i class="material-icons">public</i>
+                    Public
+                </label>
+            </div>
+
+            <!-- data is private -->
+            <div class="form-check form-check-inline">
+                <input id="private-data" class="form-check-input" type="radio"
+                       name="data-privacy" value="private-data">
+                <label class="form-check-label" for="private-data">
+                    <i class="material-icons">lock</i>
+                    Private
+                </label>
+            </div>
+        </div>
+
+        <!-- upload button -->
+        <div class="d-grid gap-2" style="margin-top: 1rem;">
+            <button type="submit" class="btn btn-primary btn-lg margin-top d-flex justify-content-center"
+                    style="background-color: var(--cript-primary-color)">
+                Upload
+            </button>
+        </div>
+
+        <br>
+
+        <!-- docs link for how to fill out config -->
+        <small class="documentation-link">
+            Please refer to our
+
+            <a href="https://c-accel-cript.github.io/cript-excel-uploader/filling_out_config/" target="_blank">
+                documentation
+            </a>
+            on how to fill out this screen
+        </small>
+
     </div>
+</form>
 
-    <!-- upload button -->
-    <div class="d-grid gap-2" style="margin-top: 1rem;">
-        <button type="button" class="btn btn-primary btn-lg margin-top d-flex justify-content-center"
-                style="background-color: var(--cript-primary-color)">
-            Upload
-        </button>
-    </div>
-
-    <br>
-
-    <!-- docs link for how to fill out config -->
-    <small class="documentation-link">
-        Please refer to our
-
-        <a href="https://c-accel-cript.github.io/cript-excel-uploader/filling_out_config/" target="_blank">
-            documentation
-        </a>
-        on how to fill out this screen
-    </small>
-
-</div>
 {% endblock %}
