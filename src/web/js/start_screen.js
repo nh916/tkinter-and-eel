@@ -12,6 +12,37 @@ document.querySelector("#auth_form").addEventListener("submit",
 );
 */
 
-function runHere(event) {
-    console.log("hello world!");
+function formValidation(host, apiToken, projectName, collectionName, isDataPublic, excelFile) {
+//    host validation
+    if (host === "") {
+
+    }
+
+}
+
+function submitForm(event) {
+    // get all input values
+    const host = document.getElementById("host-input").value;
+    const apiToken = document.getElementById("api-token-input").value;
+    const projectName = document.getElementById("project-name").value;
+    const collectionName = document.getElementById("collection-name").value;
+
+    // TODO might want to enforce boolean so it can't become anything else in the middle
+    const isDataPublic = document.getElementById("public-data").checked;
+
+    const excelFile = document.getElementById("excel-file").files;
+    console.log(excelFile);
+
+    // show validation errors
+    formValidation(host, apiToken, projectName, collectionName, isDataPublic, excelFile);
+
+
+    const userInput = {
+        "host": host,
+        "api-token": apiToken,
+        "project-name": projectName,
+        "collection-name": collectionName,
+        "data-privacy-option": isDataPublic
+    }
+
 }

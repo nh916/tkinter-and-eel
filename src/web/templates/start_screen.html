@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 
+{% block screen_js %}
+<script src="../js/start_screen.js"></script>
+{% endblock %}
+
 {% block body %}
 
 <!-- return false to prevent refresh-->
-<form onsubmit="runHere(); return false;">
+<form onsubmit="submitForm(); return false;">
     <div class="container">
 
         <!-- host input -->
@@ -50,13 +54,13 @@
         <!-- TODO get excel file path and not just file name-->
         <!-- Excel file path -->
         <div class="mb-3 margin-top">
-            <input class="form-control" type="file" id="excel-path" accept="*.xlsx">
+            <input class="form-control" type="file" id="excel-file" accept=".xlsx">
         </div>
 
 
         <div>
             <!-- TODO styling looks a bit off with this part -->
-            <label class="" style="font-size: 1.1rem; font-weight: 500; width: 10rem">
+            <label id="data-privacy-label">
                 Keep my data:
             </label>
 
