@@ -23,6 +23,8 @@ function getErrorElements() {
 // TODO refactor since function is doing 2 things
 //    1. rendering out errors
 //    2. checking for validation
+// TODO boolean flag to return from this function
+// TODO refactor function to be more obvious that it returns a boolean
 function formValidation(userInput, errorElements) {
 
     //  host: if left empty
@@ -78,7 +80,7 @@ function submitForm(event) {
     const isDataPublic = document.getElementById("public-data").checked;
 
     const excelFile = document.getElementById("excel-file").files;
-    console.log(excelFile);
+    // console.log(excelFile);
 
     const userInput = {
         "host": host,
@@ -91,12 +93,15 @@ function submitForm(event) {
 
     // tell me if there are any errors and show the errors
     if (formValidation(userInput, getErrorElements())) {
-        console.log("start uploading")
+        // console.log("form valid")
     }
 
     // if no errors then proceed
     else {
-        console.log("proceeding to uploading excel file")
+        // console.log("form invalid")
     }
+
+    // pass Excel file from JS to Python
+    eel.read_excel_file(excelFile);
 
 }
