@@ -18,6 +18,11 @@ function getErrorElements() {
 }
 
 
+// if form is invalid it returns false
+// if form is valid it returns true
+// TODO refactor since function is doing 2 things
+//    1. rendering out errors
+//    2. checking for validation
 function formValidation(userInput, errorElements) {
 
     //  host: if left empty
@@ -59,8 +64,7 @@ function formValidation(userInput, errorElements) {
     } else {
         errorElements.excelFileError.classList.add("hidden");
     }
-
-
+    return false;
 }
 
 function submitForm(event) {
@@ -85,8 +89,14 @@ function submitForm(event) {
         "excelFile": excelFile
     }
 
-    // show validation errors
-    formValidation(userInput, getErrorElements());
+    // tell me if there are any errors and show the errors
+    if (formValidation(userInput, getErrorElements())) {
+        console.log("start uploading")
+    }
 
+    // if no errors then proceed
+    else {
+        console.log("proceeding to uploading excel file")
+    }
 
 }
