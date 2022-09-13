@@ -18,10 +18,6 @@ function getErrorElements() {
 }
 
 
-// TODO future refactoring
-// loop through userInput json and error elements (both have exactly 5 elements)
-// at the same time when there is an error in userInput then put up the error
-// you can use the same pointer for both
 function formValidation(userInput, errorElements) {
 
     //  host: if left empty
