@@ -1,5 +1,3 @@
-
-
 function getErrorElements() {
     // get all error elements
     const hostError = document.getElementById("host-error");
@@ -20,29 +18,52 @@ function getErrorElements() {
 }
 
 
-
-
+// TODO future refactoring
+// loop through userInput json and error elements (both have exactly 5 elements)
+// at the same time when there is an error in userInput then put up the error
+// you can use the same pointer for both
 function formValidation(userInput, errorElements) {
 
-    console.log(`userInput: ${userInput}, errors: ${errorElements}`)
-
-    console.log(`userInput: ${userInput[0]}`)
-
-//todo this method is not working
-    // loop through userInput json and error elements (both have exactly 5 elements)
-    // at the same time when there is an error in userInput then put up the error
-    // you can use the same pointer for both
-    for (let i = 0; (i < userInput.length && i < errorElements.length); i++) {
-
-        console.log(i)
-
-        if (userInput[i] === "") {
-            errorElements[i].className.remove("hidden");
-        }
-        else {
-            errorElements[i].className.add("hidden");
-        }
+    //  host: if left empty
+    if (userInput.host === "") {
+        errorElements.hostError.textContent = "Error: Please input your Host";
+        errorElements.hostError.classList.remove("hidden");
+    } else {
+        errorElements.hostError.classList.add("hidden");
     }
+
+    // api token: if left empty
+    if (userInput.apiToken === "") {
+        errorElements.apiTokenError.textContent = "Error: Please input your API Token";
+        errorElements.apiTokenError.classList.remove("hidden");
+    } else {
+        errorElements.apiTokenError.classList.add("hidden");
+    }
+
+    // project name: if left empty
+    if (userInput.projectName === "") {
+        errorElements.projectNameError.textContent = "Error: Please input your Project name";
+        errorElements.projectNameError.classList.remove("hidden");
+    } else {
+        errorElements.projectNameError.classList.add("hidden");
+    }
+
+    // collection name: if left empty
+    if (userInput.collectionName === "") {
+        errorElements.collectionNameError.textContent = "Error: Please input your Collection Name";
+        errorElements.collectionNameError.classList.remove("hidden");
+    } else {
+        errorElements.collectionNameError.classList.add("hidden");
+    }
+
+    // check if there is an Excel file
+    if (userInput.excelFile.length < 1) {
+        errorElements.excelFileError.textContent = "Error: Please select your Excel file";
+        errorElements.excelFileError.classList.remove("hidden");
+    } else {
+        errorElements.excelFileError.classList.add("hidden");
+    }
+
 
 }
 
@@ -61,11 +82,11 @@ function submitForm(event) {
 
     const userInput = {
         "host": host,
-        "api-token": apiToken,
-        "project-name": projectName,
-        "collection-name": collectionName,
-        "data-privacy-option": isDataPublic,
-        "excel-file": excelFile
+        "apiToken": apiToken,
+        "projectName": projectName,
+        "collectionName": collectionName,
+        "dataPrivacyOption": isDataPublic,
+        "excelFile": excelFile
     }
 
     // show validation errors
