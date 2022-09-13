@@ -22,7 +22,7 @@ body {
 }
 
 .hidden {
-    display: none;
+    display: block;
 }
 
 #data-privacy-options {
