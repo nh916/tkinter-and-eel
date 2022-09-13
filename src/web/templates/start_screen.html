@@ -20,6 +20,12 @@
                    aria-label="place host here" aria-describedby="host-label">
         </div>
 
+        <!-- host error -->
+        <div id="host-error" class="alert-danger hidden" role="alert">
+            Error: please select correct host
+        </div>
+
+
         <!-- api token input -->
         <div class="input-group mb-3 margin-top">
         <span class="input-group-text" id="api-token-label" title="Get your key from: https://criptapp.org/security/">
@@ -31,8 +37,14 @@
                    aria-label="place host here" aria-describedby="api-token-label">
         </div>
 
+        <!-- api token error -->
+        <div id="api-token-error" class="alert-danger hidden" role="alert">
+            Error: please select correct api token
+        </div>
+
+
         <!-- project name input -->
-        <div class="input-group mb-3 margin-top">
+        <div class="input-group margin-top">
         <span class="input-group-text" id="project-name-label">
              <i class="material-icons margin-right">insert_chart</i> Project Name:
         </span>
@@ -40,6 +52,12 @@
             <input type="text" id="project-name" class="form-control" placeholder="My Project Name"
                    aria-label="place host here" aria-describedby="project-name-label">
         </div>
+
+        <!-- project name error -->
+        <div id="project-name-error" class="alert-danger hidden" role="alert" style="margin-top: 1.1rem;">
+            Error: please select correct project name
+        </div>
+
 
         <!-- collection name input -->
         <div class="input-group mb-3 margin-top">
@@ -51,14 +69,25 @@
                    aria-label="place host here" aria-describedby="collection-name-label">
         </div>
 
+        <!-- collection error -->
+        <div id="collection-name-error" class="alert-danger hidden" role="alert">
+            Error: please select correct collection name
+        </div>
+
+
         <!-- TODO get excel file path and not just file name-->
         <!-- Excel file path -->
         <div class="mb-3 margin-top">
             <input class="form-control" type="file" id="excel-file" accept=".xlsx">
         </div>
 
+        <!-- excel file error -->
+        <div id="excel-file-error" class="alert-danger hidden" role="alert">
+            Error: please select correct Excel file
+        </div>
 
-        <div>
+
+        <div id="data-privacy-options">
             <!-- TODO styling looks a bit off with this part -->
             <label id="data-privacy-label">
                 Keep my data:
@@ -85,8 +114,14 @@
             </div>
         </div>
 
+        <!-- data privacy error -->
+        <div id="data-privacy-error" class="alert-danger hidden" role="alert" style="margin-top: 1.1rem;">
+            Error: please select if you want to keep your data private or public
+        </div>
+
+
         <!-- upload button -->
-        <div class="d-grid gap-2" style="margin-top: 1rem;">
+        <div class="d-grid gap-2" style="margin-top: 0.5rem;">
             <button type="submit" class="btn btn-primary btn-lg margin-top d-flex justify-content-center"
                     style="background-color: var(--cript-primary-color)">
                 Upload
@@ -104,7 +139,6 @@
             </a>
             on how to fill out this screen
         </small>
-
     </div>
 </form>
 
