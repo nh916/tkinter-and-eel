@@ -1,9 +1,15 @@
 import eel
+import tkinter
+from tkinter import filedialog
 
 
 @eel.expose
 def get_excel_file_path():
-    pass
+    root = tkinter.Tk()
+    root.withdraw()
+    root.wm_attributes('-topmost', 1)
+    folder = filedialog.askdirectory()
+    # return folder
 
 
 @eel.expose

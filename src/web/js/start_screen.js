@@ -100,8 +100,8 @@ function submitForm(event) {
     else {
         // console.log("form invalid")
     }
+}
 
-    // pass Excel file from JS to Python
-    eel.read_excel_file(excelFile);
-
+function getFilePathPython() {
+    eel.get_excel_file_path();
 }

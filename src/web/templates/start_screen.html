@@ -77,8 +77,14 @@
 
         <!-- TODO get excel file path and not just file name-->
         <!-- Excel file path -->
-        <div class="mb-3 margin-top">
-            <input class="form-control" type="file" id="excel-file" accept=".xlsx">
+        <div class="input-group mb-3 margin-top">
+        <span class="input-group-text" id="collection-name-label">
+             <i class="material-symbols-outlined">folder_open</i>
+            Folder Path:
+        </span>
+
+            <input type="text" id="collection-name" class="form-control" placeholder="My Collection Name"
+                   aria-label="place host here" aria-describedby="collection-name-label">
         </div>
 
         <!-- excel file error -->
