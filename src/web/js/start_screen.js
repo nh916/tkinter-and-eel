@@ -79,7 +79,7 @@ function submitForm(event) {
     // TODO might want to enforce boolean so it can't become anything else in the middle
     const isDataPublic = document.getElementById("public-data").checked;
 
-    const excelFile = document.getElementById("excel-file").files;
+    const excelFile = document.getElementById("excel-file-path").files;
     // console.log(excelFile);
 
     const userInput = {
@@ -102,6 +102,15 @@ function submitForm(event) {
     }
 }
 
+// launches a tkinter dialog box and gets the Excel file path
 function getFilePathPython() {
     eel.get_excel_file_path();
+}
+
+// TODO needs comments
+eel.expose(setExcelFilePath);
+function setExcelFilePath(excelAbsolutePath) {
+    console.log("set excel path called!")
+    const excelFilepath = document.getElementById("excel-file-path");
+    excelFilepath.value = excelAbsolutePath;
 }
