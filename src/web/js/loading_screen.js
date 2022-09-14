@@ -1,5 +1,6 @@
 
 
+eel.expose(updateLoadingBar);
 
 function updateLoadingBar(progressNumber) {
     // must change aria-valuenow, text content, style width
