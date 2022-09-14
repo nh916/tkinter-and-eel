@@ -1,21 +1,24 @@
 
-// gets all the div elements that are hidden that contain errors
-function getErrorElements() {
-    // get all error elements
-    const hostError = document.getElementById("host-error");
-    const apiTokenError = document.getElementById("api-token-error");
-    const projectNameError = document.getElementById("project-name-error");
-    const collectionNameError = document.getElementById("collection-name-error");
-    const excelFileError = document.getElementById("excel-file-error");
-    const dataPrivacyError = document.getElementById("data-privacy-error");
+// get input elements, pack them inside JSON, and return JSON package
+function getInputElements() {
+    // get all input elements
+    const host = document.getElementById("host-input");
+    const apiToken = document.getElementById("api-token-input");
+    const projectName = document.getElementById("project-name");
+    const collectionName = document.getElementById("collection-name");
+
+    // TODO might want to enforce boolean so it can't become anything else in the middle
+    const isDataPublic = document.getElementById("public-data");
+
+    const excelFilePath = document.getElementById("excel-file-path");
 
     return {
-        "hostError": hostError,
-        "apiTokenError": apiTokenError,
-        "projectNameError": projectNameError,
-        "collectionNameError": collectionNameError,
-        "excelFileError": excelFileError,
-        "dataPrivacyError": dataPrivacyError,
+        "host": host,
+        "apiToken": apiToken,
+        "projectName": projectName,
+        "collectionName": collectionName,
+        "isDataPublic": isDataPublic,
+        "excelFile": excelFilePath
     }
 }
 
@@ -29,7 +32,7 @@ function getErrorElements() {
 //    2. checking for validation
 // TODO refactor function to be more obvious that it returns a boolean
 // TODO refactor and rename function
-function formValidation(userInput, errorElements) {
+function formValidation(userInput, inputElements) {
 
     /*
     isvalid is a boolean flag used to figure out if form is valid or not
@@ -39,49 +42,56 @@ function formValidation(userInput, errorElements) {
     */
     let isvalid = true;
 
+    // adds the appropriate class to the element and removes the other if it exists
+
     //  host: if left empty
     if (userInput.host === "") {
-        errorElements.hostError.textContent = "Error: Please input your Host";
-        errorElements.hostError.classList.remove("hidden");
+        inputElements.host.classList.add("is-invalid");
+        inputElements.host.classList.remove("is-valid");
         isvalid = false;
     } else {
-        errorElements.hostError.classList.add("hidden");
+        inputElements.host.classList.add("is-valid");
+        inputElements.host.classList.remove("is-invalid");
     }
 
     // api token: if left empty
     if (userInput.apiToken === "") {
-        errorElements.apiTokenError.textContent = "Error: Please input your API Token";
-        errorElements.apiTokenError.classList.remove("hidden");
+        inputElements.apiToken.classList.add("is-invalid");
+        inputElements.apiToken.classList.remove("is-valid");
         isvalid = false;
     } else {
-        errorElements.apiTokenError.classList.add("hidden");
+        inputElements.apiToken.classList.add("is-valid");
+        inputElements.apiToken.classList.remove("is-invalid");
     }
 
     // project name: if left empty
     if (userInput.projectName === "") {
-        errorElements.projectNameError.textContent = "Error: Please input your Project name";
-        errorElements.projectNameError.classList.remove("hidden");
+        inputElements.projectName.classList.add("is-invalid");
+        inputElements.projectName.classList.remove("is-valid");
         isvalid = false;
     } else {
-        errorElements.projectNameError.classList.add("hidden");
+        inputElements.projectName.classList.add("is-valid");
+        inputElements.projectName.classList.remove("is-invalid");
     }
 
     // collection name: if left empty
     if (userInput.collectionName === "") {
-        errorElements.collectionNameError.textContent = "Error: Please input your Collection Name";
-        errorElements.collectionNameError.classList.remove("hidden");
+        inputElements.collectionName.classList.add("is-invalid");
+        inputElements.collectionName.classList.remove("is-valid");
         isvalid = false;
     } else {
-        errorElements.collectionNameError.classList.add("hidden");
+        inputElements.collectionName.classList.add("is-valid");
+        inputElements.collectionName.classList.remove("is-invalid");
     }
 
-    // check if there is an Excel file
+    // check if there is an Excel file path
     if (userInput.excelFile === "") {
-        errorElements.excelFileError.textContent = "Error: Please select your Excel file";
-        errorElements.excelFileError.classList.remove("hidden");
+        inputElements.excelFile.classList.add("is-invalid");
+        inputElements.excelFile.classList.remove("is-valid");
         isvalid = false;
     } else {
-        errorElements.excelFileError.classList.add("hidden");
+        inputElements.excelFile.classList.add("is-valid");
+        inputElements.excelFile.classList.remove("is-invalid");
     }
     return isvalid;
 }
@@ -109,7 +119,7 @@ function submitForm(event) {
     }
 
     // if form is valid
-    if (formValidation(userInput, getErrorElements())) {
+    if (formValidation(userInput, getInputElements())) {
         console.log("form is valid");
         eel.submit_start_screen_form(userInput);
     }
@@ -127,6 +137,7 @@ function getFilePathPython() {
 
 // gets excel absolute path from python tkinter and sets the input text value
 eel.expose(setExcelFilePath);
+
 function setExcelFilePath(excelAbsolutePath) {
     const excelFilepath = document.getElementById("excel-file-path");
     excelFilepath.value = excelAbsolutePath;

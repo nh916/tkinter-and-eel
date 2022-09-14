@@ -17,14 +17,18 @@
         </span>
 
             <input type="text" id="host-input" class="form-control" placeholder="criptapp.org"
-                   aria-label="place host here" aria-describedby="host-label">
-        </div>
+                   aria-label="place host here" aria-describedby="host-label host-validation-feedback">
 
-        <!-- host error -->
-        <div id="host-error" class="alert alert-danger hidden" role="alert">
-            Error: please select correct host
-        </div>
+            <!-- valid feedback -->
+            <div class="valid-feedback">
+                Looks good!
+            </div>
 
+            <!-- invalid feedback -->
+            <div id="host-validation-feedback" class="invalid-feedback">
+                Please enter a valid host
+            </div>
+        </div>
 
         <!-- api token input -->
         <div class="input-group mb-3 margin-top">
@@ -34,14 +38,19 @@
 
             <input type="password" id="api-token-input" class="form-control"
                    placeholder="Token 012345e678910b111213a14151617181b9202122"
-                   aria-label="place host here" aria-describedby="api-token-label">
-        </div>
+                   aria-label="place host here"
+                   aria-describedby="api-token-label api-token-validation-feedback">
 
-        <!-- api token error -->
-        <div id="api-token-error" class="alert alert-danger hidden " role="alert">
-            Error: please select correct api token
-        </div>
+            <!-- valid feedback -->
+            <div class="valid-feedback">
+                Looks good!
+            </div>
 
+            <!-- invalid feedback -->
+            <div id="api-token-validation-feedback" class="invalid-feedback">
+                <u>Authentication failed:</u> Please enter valid Host and API Token
+            </div>
+        </div>
 
         <!-- project name input -->
         <div class="input-group margin-top">
@@ -50,14 +59,19 @@
         </span>
 
             <input type="text" id="project-name" class="form-control" placeholder="My Project Name"
-                   aria-label="place host here" aria-describedby="project-name-label">
-        </div>
+                   aria-label="place host here"
+                   aria-describedby="project-name-label project-name-validation-feedback">
 
-        <!-- project name error -->
-        <div id="project-name-error" class="alert alert-danger hidden " role="alert" style="margin-top: 1.1rem;">
-            Error: please select correct project name
-        </div>
+            <!-- valid feedback -->
+            <div class="valid-feedback">
+                Looks good!
+            </div>
 
+            <!-- invalid feedback -->
+            <div id="project-name-validation-feedback" class="invalid-feedback">
+                Please enter valid Project name
+            </div>
+        </div>
 
         <!-- collection name input -->
         <div class="input-group mb-3 margin-top">
@@ -66,14 +80,19 @@
         </span>
 
             <input type="text" id="collection-name" class="form-control" placeholder="My Collection Name"
-                   aria-label="place host here" aria-describedby="collection-name-label">
-        </div>
+                   aria-label="place host here"
+                   aria-describedby="collection-name-label collection-name-validation-feedback">
 
-        <!-- collection error -->
-        <div id="collection-name-error" class="alert alert-danger hidden " role="alert">
-            Error: please select correct collection name
-        </div>
+            <!-- valid feedback -->
+            <div class="valid-feedback">
+                Looks good!
+            </div>
 
+            <!-- invalid feedback -->
+            <div id="collection-name-validation-feedback" class="invalid-feedback">
+                Please enter valid Collection name
+            </div>
+        </div>
 
         <!-- TODO get excel file path and not just file name -->
         <!-- Excel file path -->
@@ -87,15 +106,19 @@
 
             <input type="text" id="excel-file-path" class="form-control"
                    placeholder="Excel absolute file path" disabled
-                   aria-label="place host here" aria-describedby="excel-file-button">
+                   aria-label="place host here"
+                   aria-describedby="excel-file-button excel-file-path-validation-feedback">
+
+            <!-- valid feedback -->
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+
+            <!-- invalid feedback -->
+            <div id="excel-file-path-validation-feedback" class="invalid-feedback">
+                Please enter valid Excel file path name
+            </div>
         </div>
-
-
-        <!-- excel file error -->
-        <div id="excel-file-error" class="alert alert-danger hidden " role="alert">
-            Error: please select correct Excel file
-        </div>
-
 
         <div id="data-privacy-options">
             <!-- TODO styling looks a bit off with this part -->
