@@ -106,6 +106,7 @@ function submitForm(event) {
 
     const excelFilePath = document.getElementById("excel-file-path").value;
 
+    // TODO refactor to change excelFile to excelFilePath, isDataPublic to dataIsPublic
     // Json pack of user input from UI
     const userInput = {
         "host": host,
@@ -119,7 +120,8 @@ function submitForm(event) {
     // if form is valid
     if (formValidation(userInput, getInputElements())) {
         console.log("form is valid");
-        eel.submit_start_screen_form(userInput);
+        eel.set_auth_variables(userInput);
+        eel.connect_to_cript();
     }
 
     // if is invalid

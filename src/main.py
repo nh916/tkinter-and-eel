@@ -4,6 +4,13 @@ from tkinter import filedialog
 
 import eel
 
+host = None
+api_token = None
+project_name = None
+collection_name = None
+excel_file_path = None
+data_is_public = False
+
 
 # TODO this needs comments
 # opens up tkinter dialog box to locate excel file path, captures the absolute path,
@@ -23,13 +30,37 @@ def get_excel_file_path():
     eel.setExcelFilePath(path_to_excel_file)
 
 
-# sends it a json of user inputs to give to Excel Uploader code to connect to CRIPT and upload
+# set the variables from start screen here
 @eel.expose
-def submit_start_screen_form(user_input):
-    print(user_input)
+def set_auth_variables(user_input):
+    global host, api_token, project_name, collection_name, excel_file_path, data_is_public
 
-    # calling routes.js to switch to loading screen
+    host = user_input["host"]
+    api_token = user_input["apiToken"]
+    project_name = user_input["projectName"]
+    collection_name = user_input["collectionName"]
+    excel_file_path = user_input["excelFile"]
+    data_is_public = user_input["isDataPublic"]
+
+
+@eel.expose
+def connect_to_cript():
+    global host, api_token, project_name, collection_name, excel_file_path, data_is_public
+    print(
+        f"host: {host}; api_token: {api_token}; project_name: {project_name}; collection_name: {collection_name}; excel_file_path: {excel_file_path}; data_is_public: {data_is_public} ")
+
+    #     after connection is established then navigate to loading screen
     eel.goToLoadingScreen()
+
+
+#     if connection error then show the error
+
+
+# this is used both for initial upload and reload
+# calls excel uploader python file and then navigates to success or errors and display errors
+@eel.expose
+def upload_to_cript():
+    pass
 
 
 # calls js code and keeps updating it with the latest percentage completed
