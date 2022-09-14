@@ -1,5 +1,11 @@
+// handles if user clicks cancel button while uploading
+function cancelUpload() {
+    // when cancel button is clicked indicate to user that their upload has been canceled
+    eel.cancel_upload();
+}
 
 
+// handles updating progress bar and can be called from python code
 eel.expose(updateLoadingBar);
 
 function updateLoadingBar(progressNumber) {
@@ -16,5 +22,11 @@ function updateLoadingBar(progressNumber) {
     progressbar.style.width = progressPercent;
     progressbar.textContent = progressPercent;
 
-    console.log(`style width: ${progressbar.style.width}, text: ${progressbar.textContent}, aria value now: ${progressbar.ariaValueNow}`);
+    // TODO test make this correct
+    // if reaches 100% then go to success screen
+    if (progressNumber === 100) {
+
+        // TODO wait a second and then navigate to success screen so the user can see progress bar reached 100
+        goToSuccessScreen();
+    }
 }

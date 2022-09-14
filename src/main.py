@@ -39,6 +39,13 @@ def loading_percentage():
     pass
 
 
+# TODO cancel upload if user clicks cancel
+@eel.expose
+def cancel_upload():
+    # TODO cancel upload
+    eel.goToStartScreen()
+
+
 #  if everything works out correctly then it navigates to the loading screen
 #  might need to turn the upload button on start screen to a spinner
 #  to indicate that its running if connections takes too long
