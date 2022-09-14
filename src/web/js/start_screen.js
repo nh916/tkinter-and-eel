@@ -25,8 +25,6 @@ function getInputElements() {
 
 // if form is invalid it returns false
 // if form is valid it returns true
-// TODO function seems hardcoded, see if you can have a way to have it more dynamic
-// TODO instead of removing .hidden class, use validation feedback
 // TODO refactor since function is doing 2 things
 //    1. rendering out errors
 //    2. checking for validation
