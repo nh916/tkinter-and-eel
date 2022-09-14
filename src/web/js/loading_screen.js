@@ -1,7 +1,15 @@
-// handles if user clicks cancel button while uploading
+// TODO needs to do better than stop the entire program and close the window
+// TODO consider using multi threading so you can stop the upload
+//  and return them to the start screen instead
+// when cancel button is clicked, stop the upload, indicate to user that it's been canceled, and return to start screen
 function cancelUpload() {
     // when cancel button is clicked indicate to user that their upload has been canceled
+
+    document.getElementById("uploader-progress").textContent = "Canceled";
     eel.cancel_upload();
+
+    // slight delay here so user can see the program canceled instead of a sudden stop
+    setTimeout(window.close, 900);
 }
 
 

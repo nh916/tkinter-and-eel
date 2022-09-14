@@ -1,6 +1,8 @@
-import eel
+import sys
 import tkinter
 from tkinter import filedialog
+
+import eel
 
 
 # TODO this needs comments
@@ -43,7 +45,9 @@ def loading_percentage():
 @eel.expose
 def cancel_upload():
     # TODO cancel upload
-    eel.goToStartScreen()
+    print("hit cancel")
+    sys.exit()
+    # eel.goToStartScreen()
 
 
 #  if everything works out correctly then it navigates to the loading screen
@@ -58,7 +62,7 @@ def read_excel_file(excel_file):
 eel.init("web")
 
 eel.start(
-    'templates/loading_screen.html',
+    'templates/start_screen.html',
     jinja_templates='templates',
     size=(800, 850),
 )
