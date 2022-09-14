@@ -30,7 +30,6 @@ def submit_start_screen_form(user_input):
     eel.goToLoadingScreen()
 
 
-
 #  if everything works out correctly then it navigates to the loading screen
 #  might need to turn the upload button on start screen to a spinner
 #  to indicate that its running if connections takes too long
