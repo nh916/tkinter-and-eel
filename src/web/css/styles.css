@@ -26,6 +26,11 @@ body {
     display: none;
 }
 
+#excel-file-button {
+    background-color: var(--cript-primary-color);
+    color: white;
+}
+
 #data-privacy-options {
     margin-top: 1.2rem;
 }

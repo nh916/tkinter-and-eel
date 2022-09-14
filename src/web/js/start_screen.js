@@ -60,7 +60,7 @@ function formValidation(userInput, errorElements) {
     }
 
     // check if there is an Excel file
-    if (userInput.excelFile.length < 1) {
+    if (userInput.excelFile === "") {
         errorElements.excelFileError.textContent = "Error: Please select your Excel file";
         errorElements.excelFileError.classList.remove("hidden");
     } else {
@@ -93,12 +93,12 @@ function submitForm(event) {
 
     // tell me if there are any errors and show the errors
     if (formValidation(userInput, getErrorElements())) {
-        // console.log("form valid")
+        console.log("form valid")
     }
 
     // if no errors then proceed
     else {
-        // console.log("form invalid")
+        console.log("form invalid")
     }
 }
 

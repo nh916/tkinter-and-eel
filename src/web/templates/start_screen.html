@@ -75,17 +75,21 @@
         </div>
 
 
-        <!-- TODO get excel file path and not just file name-->
+        <!-- TODO get excel file path and not just file name -->
         <!-- Excel file path -->
         <div class="input-group mb-3 margin-top">
-        <span class="input-group-text" id="collection-name-label">
-             <i class="material-symbols-outlined">folder_open</i>
-            Folder Path:
-        </span>
 
-            <input type="text" id="collection-name" class="form-control" placeholder="My Collection Name"
-                   aria-label="place host here" aria-describedby="collection-name-label">
+            <button type="button" onclick="getFilePathPython()"
+                    class="btn margin-right" id="excel-file-button">
+                <i class="material-icons margin-right">folder</i>
+                Excel File:
+            </button>
+
+            <input type="text" id="excel-file" class="form-control"
+                   placeholder="Excel file path" disabled style="cursor: not-allowed"
+                   aria-label="place host here" aria-describedby="excel-file-button">
         </div>
+
 
         <!-- excel file error -->
         <div id="excel-file-error" class="alert alert-danger hidden " role="alert">
