@@ -8,6 +8,7 @@ from tkinter import filedialog
 def get_excel_file_path():
     print("hello world")
     root = tkinter.Tk()
+    # TODO add icon for dialog box
     root.withdraw()
     root.wm_attributes('-topmost', 1)
     # allows only Excel files to be selected
