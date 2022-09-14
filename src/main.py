@@ -30,6 +30,15 @@ def submit_start_screen_form(user_input):
     eel.goToLoadingScreen()
 
 
+# calls js code and keeps updating it with the latest percentage completed
+# divide the progress by number of progress bars and Math.floor and send that to js to update
+#   dividing progress by total progress bars to give an overall view of progress
+#   Math.floor progress because if its 1/5 (0.2) we want to just show 0% progress
+def loading_percentage():
+    number_of_progress_bars = 5
+    pass
+
+
 #  if everything works out correctly then it navigates to the loading screen
 #  might need to turn the upload button on start screen to a spinner
 #  to indicate that its running if connections takes too long
