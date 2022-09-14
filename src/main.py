@@ -4,9 +4,10 @@ from tkinter import filedialog
 
 
 # TODO this needs comments
+# opens up tkinter dialog box to locate excel file path, captures the absolute path,
+# and calls a JS function to set the absolute Excel file path in the UI
 @eel.expose
 def get_excel_file_path():
-    print("hello world")
     root = tkinter.Tk()
     # TODO add icon for dialog box
     root.withdraw()
@@ -19,6 +20,16 @@ def get_excel_file_path():
                                                     )
     eel.setExcelFilePath(path_to_excel_file)
 
+
+# sends it a json of user inputs to give to Excel Uploader code to connect to CRIPT and upload
+@eel.expose
+def submit_start_screen_form(user_input):
+    print(user_input)
+
+
+#  if everything works out correctly then it navigates to the loading screen
+#  might need to turn the upload button on start screen to a spinner
+#  to indicate that its running if connections takes too long
 
 @eel.expose
 def read_excel_file(excel_file):

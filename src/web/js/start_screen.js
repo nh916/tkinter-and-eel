@@ -1,3 +1,5 @@
+
+// gets all the div elements that are hidden that contain errors
 function getErrorElements() {
     // get all error elements
     const hostError = document.getElementById("host-error");
@@ -20,17 +22,28 @@ function getErrorElements() {
 
 // if form is invalid it returns false
 // if form is valid it returns true
+// TODO function seems hardcoded, see if you can have a way to have it more dynamic
+// TODO instead of removing .hidden class, use validation feedback
 // TODO refactor since function is doing 2 things
 //    1. rendering out errors
 //    2. checking for validation
-// TODO boolean flag to return from this function
 // TODO refactor function to be more obvious that it returns a boolean
+// TODO refactor and rename function
 function formValidation(userInput, errorElements) {
+
+    /*
+    isvalid is a boolean flag used to figure out if form is valid or not
+    if it doesn't hit any of the validation errors, then it is valid
+    if it hits any of the validations then it becomes false
+    the flag gets returned at the end
+    */
+    let isvalid = true;
 
     //  host: if left empty
     if (userInput.host === "") {
         errorElements.hostError.textContent = "Error: Please input your Host";
         errorElements.hostError.classList.remove("hidden");
+        isvalid = false;
     } else {
         errorElements.hostError.classList.add("hidden");
     }
@@ -39,6 +52,7 @@ function formValidation(userInput, errorElements) {
     if (userInput.apiToken === "") {
         errorElements.apiTokenError.textContent = "Error: Please input your API Token";
         errorElements.apiTokenError.classList.remove("hidden");
+        isvalid = false;
     } else {
         errorElements.apiTokenError.classList.add("hidden");
     }
@@ -47,6 +61,7 @@ function formValidation(userInput, errorElements) {
     if (userInput.projectName === "") {
         errorElements.projectNameError.textContent = "Error: Please input your Project name";
         errorElements.projectNameError.classList.remove("hidden");
+        isvalid = false;
     } else {
         errorElements.projectNameError.classList.add("hidden");
     }
@@ -55,6 +70,7 @@ function formValidation(userInput, errorElements) {
     if (userInput.collectionName === "") {
         errorElements.collectionNameError.textContent = "Error: Please input your Collection Name";
         errorElements.collectionNameError.classList.remove("hidden");
+        isvalid = false;
     } else {
         errorElements.collectionNameError.classList.add("hidden");
     }
@@ -63,10 +79,11 @@ function formValidation(userInput, errorElements) {
     if (userInput.excelFile === "") {
         errorElements.excelFileError.textContent = "Error: Please select your Excel file";
         errorElements.excelFileError.classList.remove("hidden");
+        isvalid = false;
     } else {
         errorElements.excelFileError.classList.add("hidden");
     }
-    return false;
+    return isvalid;
 }
 
 function submitForm(event) {
@@ -79,24 +96,24 @@ function submitForm(event) {
     // TODO might want to enforce boolean so it can't become anything else in the middle
     const isDataPublic = document.getElementById("public-data").checked;
 
-    const excelFile = document.getElementById("excel-file-path").files;
-    // console.log(excelFile);
+    const excelFilePath = document.getElementById("excel-file-path").value;
 
+    // Json pack of user input from UI
     const userInput = {
         "host": host,
         "apiToken": apiToken,
         "projectName": projectName,
         "collectionName": collectionName,
-        "dataPrivacyOption": isDataPublic,
-        "excelFile": excelFile
+        "isDataPublic": isDataPublic,
+        "excelFile": excelFilePath
     }
 
-    // tell me if there are any errors and show the errors
+    // if form is valid
     if (formValidation(userInput, getErrorElements())) {
-        console.log("form valid")
+        eel.submit_start_screen_form(userInput);
     }
 
-    // if no errors then proceed
+    // if is invalid
     else {
         console.log("form invalid")
     }
@@ -110,7 +127,6 @@ function getFilePathPython() {
 // gets excel absolute path from python tkinter and sets the input text value
 eel.expose(setExcelFilePath);
 function setExcelFilePath(excelAbsolutePath) {
-    console.log("set excel path called!")
     const excelFilepath = document.getElementById("excel-file-path");
     excelFilepath.value = excelAbsolutePath;
 }
