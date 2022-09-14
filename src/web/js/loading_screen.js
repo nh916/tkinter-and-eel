@@ -30,11 +30,11 @@ function updateLoadingBar(progressNumber) {
     progressbar.style.width = progressPercent;
     progressbar.textContent = progressPercent;
 
-    // TODO test make this correct
+    // TODO test make this correct or if it needs to come from python instead
     // if reaches 100% then go to success screen
     if (progressNumber === 100) {
 
-        // TODO wait a second and then navigate to success screen so the user can see progress bar reached 100
-        goToSuccessScreen();
+        // slight delay so user can see they reached 100% before navigating to Success screen
+        setTimeout(goToSuccessScreen, 1000);
     }
 }
