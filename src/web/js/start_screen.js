@@ -110,6 +110,7 @@ function submitForm(event) {
 
     // if form is valid
     if (formValidation(userInput, getErrorElements())) {
+        console.log("form is valid");
         eel.submit_start_screen_form(userInput);
     }
 

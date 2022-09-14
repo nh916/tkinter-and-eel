@@ -26,6 +26,10 @@ def get_excel_file_path():
 def submit_start_screen_form(user_input):
     print(user_input)
 
+    # calling routes.js to switch to loading screen
+    eel.goToLoadingScreen()
+
+
 
 #  if everything works out correctly then it navigates to the loading screen
 #  might need to turn the upload button on start screen to a spinner
