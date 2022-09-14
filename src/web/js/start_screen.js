@@ -107,7 +107,7 @@ function getFilePathPython() {
     eel.get_excel_file_path();
 }
 
-// TODO needs comments
+// gets excel absolute path from python tkinter and sets the input text value
 eel.expose(setExcelFilePath);
 function setExcelFilePath(excelAbsolutePath) {
     console.log("set excel path called!")
