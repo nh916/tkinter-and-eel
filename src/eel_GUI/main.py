@@ -78,7 +78,7 @@ def cancel_upload():
     # TODO cancel upload
     print("hit cancel")
     sys.exit()
-    # eel.goToStartScreen()
+    # eel GUI.goToStartScreen()
 
 
 #  if everything works out correctly then it navigates to the loading screen
