@@ -6,10 +6,10 @@ from getpass import getpass
 import cript
 import requests
 
-import parse
 import create
-from create import error_list
+import parse
 import upload
+from create import error_list
 
 ###
 # Setup
