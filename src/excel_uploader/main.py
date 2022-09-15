@@ -1,19 +1,15 @@
 import os
 import sys
-import time
 import warnings
 from getpass import getpass
 
 import cript
-import yaml
 import requests
 
-import ascii_art
 import parse
 import create
 from create import error_list
 import upload
-
 
 ###
 # Setup
@@ -23,23 +19,18 @@ import upload
 # Suppress warnings
 warnings.filterwarnings("ignore")
 
-
-# Display title
-print(ascii_art.title.template)
-time.sleep(1)
-
-
+# TODO set variables here
 # Load config file
 try:
-    with open("config.yaml", "r") as f:
-        config = yaml.safe_load(f)
+    # TODO config variables need to
+    pass
 except FileNotFoundError:
     config = {}
 
-
+# TODO function to connect to CRIPT
 # Establish API connection
 connected = False
-while connected == False:
+while not connected:
     try:
         api = cript.API(
             config.get("host"), config.get("token"), tls=config.get("tls", True)
@@ -50,12 +41,11 @@ while connected == False:
         config["host"] = input("Host (e.g., criptapp.org): ")
         config["token"] = getpass("API Token: ")
 
-
+# TODO create a function that gets project, collection, and get ready to upload to cript
 # Get Excel file path
 while config.get("path") is None or not os.path.exists(config.get("path")):
     print("~ Could not find the file. Try again.\n")
     config["path"] = input("Path to Excel file: ").strip('"')
-
 
 # Get Project
 project = None
@@ -65,7 +55,6 @@ while project is None:
     except cript.exceptions.APIGetError:
         print("~ Could not find the specified project. Try again.\n")
         config["project"] = input("Project name: ")
-
 
 # Get Collection
 collection = None
@@ -79,18 +68,13 @@ while collection is None:
         print("~ Could not find the specified collection. Try again.\n")
         config["collection"] = input("Collection name: ")
 
-
 # Get privacy settings
 public = config.get("public")
 while public is None or not isinstance(public, bool):
     public = input("Do you want your data visible to the public? (yes/no): ")
     public = public.lower() == "yes"
 
-
-# Display chem art
-print(ascii_art.chem.template)
-
-
+# TODO this needs to be a function or something
 # Define sheet parameters
 sheet_parameters = [
     {
@@ -145,12 +129,11 @@ sheet_parameters = [
     },
 ]
 
-
 ###
 # Parse
 ###
 
-
+# TODO function to parse sheet
 parsed_sheets = {}
 for parameter in sheet_parameters:
     # Creates a Sheet object to be parsed for each sheet
@@ -160,7 +143,6 @@ for parameter in sheet_parameters:
         parameter["required_columns"],
         unique_columns=parameter["unique_columns"],
     ).parse()
-
 
 ###
 # Create and validate
@@ -185,7 +167,7 @@ create.create_ingredients(parsed_sheets["process ingredient"], processes, materi
 create.create_products(parsed_sheets["process product"], processes, materials)
 create.create_equipment(parsed_sheets["process equipment"], processes, data, citations)
 
-
+# TODO this needs to call the error function in eel and then to JS and then to HTML
 # Print errors
 if error_list:
     print("-- ERRORS --\n")
@@ -193,12 +175,11 @@ if error_list:
         print(f"{error}\n")
     sys.exit(1)
 
-
 ###
 # Upload
 ###
 
-
+# TODO this needs to update progress bar as it goes
 upload.upload(api, experiments, "Experiment")
 upload.upload(api, references, "Reference")
 upload.upload(api, data, "Data")
@@ -211,7 +192,8 @@ upload.add_sample_preparation_to_process(parsed_sheets["data"], data, processes,
 # Finish
 ###
 
-
+# TODO hopefully they dont need to authenticate through Globus
+#  and can just use the authentication cookie on their browser
 # Print message
 collection_url = collection.url.replace("api/", "")
 print(f"\n\nThe upload was successful!")
