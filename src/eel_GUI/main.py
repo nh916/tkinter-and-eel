@@ -49,6 +49,8 @@ def connect_to_cript():
     print(
         f"host: {host}; api_token: {api_token}; project_name: {project_name}; collection_name: {collection_name}; excel_file_path: {excel_file_path}; data_is_public: {data_is_public} ")
 
+    # TODO needs exception handling
+
     #     after connection is established then navigate to loading screen
     eel.goToLoadingScreen()
 
@@ -57,7 +59,8 @@ def connect_to_cript():
 
 
 # this is used both for initial upload and reload
-# calls excel uploader python file and then navigates to success or errors and display errors
+# calls excel uploader python file, navigates to loader
+# then loader decides where to go depending on error or success
 @eel.expose
 def upload_to_cript():
     pass
