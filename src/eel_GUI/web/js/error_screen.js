@@ -14,11 +14,14 @@ result is:
         <b>Issue:</b> sample_preparation does not have a corresponding data node
     </div>
 */
-function addErrorsToScreen(error) {
+eel.expose(addErrorsToScreen);
+
+function addErrorsToScreen(errorList) {
     // TODO could this be a security risk?
-    let errorAlert = $(`<div class="alert alert-danger" role="alert">${error} </div>`);
+    let errorAlert = $(`<div class="alert alert-danger" role="alert">${errorList} </div>`);
     $("#error-window").append(errorAlert);
 }
+
 // TODO need to take into consideration about how to give the total number of errors ie "15 Errors"
 
 

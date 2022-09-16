@@ -6,9 +6,17 @@
 
 {% block body %}
 
-<!-- return false to prevent refresh-->
-<form id="start-screen-form" onsubmit="submitForm(); return false;">
-    <div class="container">
+<div class="container">
+
+    <!-- hidden alert that shows when authentication error occurs it shows up -->
+    <div id="authentication-error-alert" class="alert alert-danger hidden" role="alert">
+        Authentication Failure: Could not authenticate user with host and token.
+        <br>
+        Please be sure both host and token are correct
+    </div>
+
+    <!-- return false to prevent refresh-->
+    <form id="start-screen-form" onsubmit="submitForm(); return false;">
 
         <!-- host input -->
         <div class="input-group mb-3 margin-top">
@@ -22,7 +30,7 @@
 
             <!-- invalid feedback -->
             <div id="host-validation-feedback" class="invalid-feedback">
-                Please enter a valid host
+                Invalid host or token
             </div>
         </div>
 
@@ -40,7 +48,7 @@
 
             <!-- invalid feedback -->
             <div id="api-token-validation-feedback" class="invalid-feedback">
-                <u>Authentication failed:</u> Please enter valid Host and API Token
+                Invalid host or token
             </div>
         </div>
 
@@ -57,7 +65,7 @@
 
             <!-- invalid feedback -->
             <div id="project-name-validation-feedback" class="invalid-feedback">
-                Please enter valid Project name
+                Please be sure your Project exists in CRIPT
             </div>
         </div>
 
@@ -74,11 +82,10 @@
 
             <!-- invalid feedback -->
             <div id="collection-name-validation-feedback" class="invalid-feedback">
-                Please enter valid Collection name
+                Please be sure your Collection exists in CRIPT
             </div>
         </div>
 
-        <!-- TODO get excel file path and not just file name -->
         <!-- Excel file path -->
         <div class="input-group mb-3 margin-top">
 
@@ -89,14 +96,14 @@
             </button>
 
             <input type="text" id="excel-file-path" class="form-control"
-                   placeholder="Excel absolute file path" disabled
+                   placeholder="Excel absolute file path"
                    aria-label="place host here"
                    aria-describedby="excel-file-button excel-file-path-validation-feedback"
-                   required>
+                   disabled required>
 
             <!-- invalid feedback -->
             <div id="excel-file-path-validation-feedback" class="invalid-feedback">
-                Please enter valid Excel file
+                Excel file not found
             </div>
         </div>
 
@@ -135,7 +142,8 @@
 
         <!-- upload button -->
         <div class="d-grid gap-2" style="margin-top: 0.5rem;">
-            <button type="submit" class="btn btn-primary btn-lg margin-top d-flex justify-content-center"
+            <button type="submit" id="upload-button"
+                    class="btn btn-primary btn-lg margin-top d-flex justify-content-center"
                     style="background-color: var(--cript-primary-color)">
                 Upload
             </button>
@@ -152,7 +160,7 @@
             </a>
             on how to fill out this screen
         </small>
-    </div>
-</form>
+    </form>
+</div>
 
 {% endblock %}
