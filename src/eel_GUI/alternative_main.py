@@ -34,7 +34,7 @@ class ExcelUploaderGUI:
         :return: none
         """
         self.eel.start(
-            'templates/loading_screen.html',
+            'templates/start_screen.html',
             jinja_templates='templates',
             size=(800, 850),
         )
@@ -53,6 +53,7 @@ class ExcelUploaderGUI:
         :return: none
         """
         root = tkinter.Tk()
+        root.iconbitmap("./assets/logo_condensed.ico")
         root.withdraw()
         root.wm_attributes('-topmost', 1)
         # allows only Excel files to be selected
@@ -76,7 +77,7 @@ class ExcelUploaderGUI:
         but not currently using it, however, the functionality exists if needed
 
         if the len of error_dict is 0 then everything is valid,
-        and send all excel_uploader required objects get set and upload starts
+        and send_to_upload
         :param user_input: dict
         :return: None
         """
@@ -120,12 +121,20 @@ class ExcelUploaderGUI:
 
         # if no errors then everything is set and take them to loading screen
         if len(error_dict) == 0:
-            print("everything was valid from start_screen form")
-            eel.goToLoadingScreen()
+            self.send_to_upload()
 
         # if errors then display them to the user with feedback
         else:
             eel.displayFormErrors(error_dict)
+
+    def send_to_upload(self):
+        """
+        changes the screen from start_screen.html to loading_screen.html
+        all excel_uploader required objects get sent and upload_driver starts to work
+        :return: None
+        """
+        eel.goToLoadingScreen()
+        self.excel_uploader.upload_driver(self.excel_uploader, self.data_is_public, self)
 
     # JS calls this
     def cancel_upload(self):

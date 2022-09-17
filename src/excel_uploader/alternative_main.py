@@ -15,7 +15,7 @@ class ExcelUploader:
         self.data_is_public = None
 
         # used in create nodes function
-        self.nodes = None
+        self.nodes = {}
 
         # Define sheet parameters
         self.sheet_parameters = sheet_parameters
@@ -87,7 +87,7 @@ class ExcelUploader:
         """
         self.nodes["experiments"] = create.create_experiments(
             parsed_sheets["experiment"], self.collection_object, data_is_public)
-        self.node["references"], self.nodes["citations"] = create.create_citations(
+        self.nodes["references"], self.nodes["citations"] = create.create_citations(
             parsed_sheets["citation"], self.project_object.group, data_is_public
         )
         self.nodes["data"], self.nodes["files"] = create.create_data(

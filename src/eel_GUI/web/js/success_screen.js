@@ -1,4 +1,4 @@
-eel.expose(updateLoadingBar);
+eel.expose(displayCollectionURL);
 
 // gets called from python eel with collection URL and attaches collection URL to dom
 function displayCollectionURL(collectionURL) {

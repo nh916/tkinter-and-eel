@@ -10,7 +10,7 @@ class Sheet:
         self.required_columns = required_columns
         self.unique_columns = unique_columns
 
-        # Converts excel sheet into pandas DataFrame
+        # Converts Excel sheet into pandas DataFrame
         try:
             self.df = pd.read_excel(
                 self.path, sheet_name=self.sheet_name, header=[0, 1, 2]
