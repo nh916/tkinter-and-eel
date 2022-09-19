@@ -60,7 +60,7 @@ class ExcelUploader:
         """
         parses sheets and returns it to be used by create_nodes()
         :param excel_file_path:
-        :return:
+        :return: dict
         """
         parsed_sheets = {}
         for parameter in sheet_parameters:
