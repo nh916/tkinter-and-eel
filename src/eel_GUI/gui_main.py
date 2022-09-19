@@ -149,7 +149,7 @@ class ExcelUploaderGUI:
         """
         sys.exit()
 
-    # calls JS
+    # this calls JS
     def update_progress_bar(self, progress_number):
         """
         gets called on every loop iteration from ../excel_uploader/upload.py
@@ -162,7 +162,7 @@ class ExcelUploaderGUI:
         """
         eel.updateLoadingBar(progress_number)
 
-    # calls JS
+    # this calls JS
     def display_errors(self, error_list):
         """
         gets called by ../excel_uploader/excel_uploader_main.py from upload_driver() when there is an error
@@ -173,7 +173,7 @@ class ExcelUploaderGUI:
         eel.goToErrorScreen()
         eel.addErrorsToScreen(error_list)
 
-    # calls JS
+    # this calls JS
     def display_success(self, collection_url):
         """
         navigates user to the success screen and then fires JS function of
