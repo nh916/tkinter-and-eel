@@ -10,7 +10,7 @@ import requests
 
 # my imports
 # TODO this needs to change after alternative main is renamed to something like Driver
-from src.excel_uploader.alternative_main import ExcelUploader
+from src.excel_uploader.excel_uploader_main import ExcelUploader
 
 
 class ExcelUploaderGUI:
@@ -165,7 +165,7 @@ class ExcelUploaderGUI:
     # calls JS
     def display_errors(self, error_list):
         """
-        gets called by ../excel_uploader/alternative_main.py from upload_driver() when there is an error
+        gets called by ../excel_uploader/excel_uploader_main.py from upload_driver() when there is an error
         the error_list comes into here then gets sent to JS addErrorsToScreen(errorList) to loop through and add to dom
         :param error_list: list
         :return: None
