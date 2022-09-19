@@ -12,13 +12,10 @@ class ExcelUploader:
         self.api = None
         self.project_object = None
         self.collection_object = None
-        self.data_is_public = None
+        self.data_is_public = False
 
         # used in create nodes function
         self.nodes = {}
-
-        # Define sheet parameters
-        self.sheet_parameters = sheet_parameters
 
         # after successful upload we have a collections URL
         self.collection_url = None
@@ -66,7 +63,7 @@ class ExcelUploader:
         :return:
         """
         parsed_sheets = {}
-        for parameter in self.sheet_parameters:
+        for parameter in sheet_parameters:
             # Creates a Sheet object to be parsed for each sheet
             parsed_sheets[parameter["name"]] = parse.Sheet(
                 excel_file_path,

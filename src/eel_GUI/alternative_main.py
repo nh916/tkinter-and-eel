@@ -53,7 +53,7 @@ class ExcelUploaderGUI:
         :return: none
         """
         root = tkinter.Tk()
-        root.iconbitmap("./assets/logo_condensed.ico")
+        # root.iconbitmap("./assets/logo_condensed.ico")
         root.withdraw()
         root.wm_attributes('-topmost', 1)
         # allows only Excel files to be selected
@@ -115,6 +115,7 @@ class ExcelUploaderGUI:
             # if exists file then set object variable path, if not then give an error
             excel_file = open(user_input["excelFile"], "r")
             excel_file.close()
+            self.excel_file_path = user_input["excelFile"]
 
         except FileNotFoundError:
             error_dict["excel_file"] = "Excel file not found"
@@ -134,7 +135,7 @@ class ExcelUploaderGUI:
         :return: None
         """
         eel.goToLoadingScreen()
-        self.excel_uploader.upload_driver(self.excel_uploader, self.data_is_public, self)
+        self.excel_uploader.upload_driver(self.excel_file_path, self.data_is_public, self)
 
     # JS calls this
     def cancel_upload(self):

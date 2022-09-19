@@ -3,14 +3,10 @@
 // base url of the app
 const rootUrl = "http://localhost:8000/templates"
 
-// file name variables used to change screens
-const start_URL = "start_screen.html";
-const loading_URL = "loading_screen.html";
-const error_URL = "error_screen.html";
-const success_URL = "success_screen.html";
 
 // navigate to start screen
 eel.expose(goToStartScreen);
+const start_URL = "start_screen.html";
 
 function goToStartScreen() {
     window.location.replace(`${rootUrl}/${start_URL}`);
@@ -21,6 +17,7 @@ function goToStartScreen() {
 eel.expose(goToLoadingScreen);
 
 function goToLoadingScreen() {
+    const loading_URL = "loading_screen.html";
     window.location.replace(`${rootUrl}/${loading_URL}`);
 }
 
@@ -28,6 +25,7 @@ function goToLoadingScreen() {
 eel.expose(goToErrorScreen);
 
 function goToErrorScreen() {
+    const error_URL = "error_screen.html";
     window.location.replace(`${rootUrl}/${error_URL}`);
 }
 
@@ -35,5 +33,6 @@ function goToErrorScreen() {
 eel.expose(goToSuccessScreen);
 
 function goToSuccessScreen() {
+    const success_URL = "success_screen.html";
     window.location.replace(`${rootUrl}/${success_URL}`);
 }

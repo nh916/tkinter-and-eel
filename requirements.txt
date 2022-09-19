@@ -6,7 +6,7 @@ certifi==2022.9.14
 cffi==1.15.1
 charset-normalizer==2.1.1
 colorama==0.4.5
-cript==0.4.6
+cript==0.4.7
 cryptography==38.0.1
 Eel==0.14.0
 et-xmlfile==1.1.0
@@ -22,6 +22,7 @@ numpy==1.23.3
 openpyxl==3.0.10
 pandas==1.4.4
 pefile==2022.5.30
+Pillow==9.2.0
 Pint==0.19.2
 pycparser==2.21
 pyinstaller==5.4.1
