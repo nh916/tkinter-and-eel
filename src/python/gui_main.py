@@ -10,14 +10,14 @@ import requests
 
 # my imports
 # TODO this needs to change after alternative main is renamed to something like Driver
-from src.excel_uploader.excel_uploader_main import ExcelUploader
+from excel_uploader_main import ExcelUploader
 
 
 class ExcelUploaderGUI:
     def __init__(self):
         # initialize eel
         self.eel = eel
-        self.eel.init("./web")
+        self.eel.init("../web")
 
         self.host = None
         self.api_key = None

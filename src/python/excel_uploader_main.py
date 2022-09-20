@@ -1,10 +1,8 @@
 import cript
 
-from src.excel_uploader import create
-from src.excel_uploader import parse
-from src.excel_uploader import upload
-from src.excel_uploader.create import error_list
-from src.excel_uploader.sheet_parameters import sheet_parameters
+import create, parse, upload
+from create import error_list
+from sheet_parameters import sheet_parameters
 
 
 class ExcelUploader:
