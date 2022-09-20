@@ -155,3 +155,14 @@ function displayFormErrors(errors) {
     }
 
 }
+
+function fillInputDev() {
+    let inputElements = getInputElements();
+    inputElements.host.value = "";
+    inputElements.apiToken.value = "";
+    inputElements.projectName.value = "";
+    inputElements.collectionName.value = "";
+    inputElements.excelFile.value = "";
+}
+
+fillInputDev();

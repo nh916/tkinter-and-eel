@@ -17,13 +17,9 @@ result is:
 eel.expose(addErrorsToScreen);
 
 function addErrorsToScreen(errorList) {
-    // TODO could this be a security risk?
-    let errorAlert = $(`<div class="alert alert-danger" role="alert">${errorList} </div>`);
-    $("#error-window").append(errorAlert);
+    console.log("ran this");
+    console.log(document.getElementById("error-window"));
 }
-
-// TODO need to take into consideration about how to give the total number of errors ie "15 Errors"
-
 
 
 

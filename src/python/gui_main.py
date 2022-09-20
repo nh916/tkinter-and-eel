@@ -135,7 +135,13 @@ class ExcelUploaderGUI:
         :return: None
         """
         eel.goToLoadingScreen()
-        self.excel_uploader.upload_driver(self.excel_file_path, self.data_is_public, self)
+
+        try:
+            self.excel_uploader.upload_driver(self.excel_file_path, self.data_is_public, self)
+        except KeyError:
+            print("hit keyError exception")
+            eel.goToErrorScreen()()
+            eel.addErrorsToScreen()()
 
     # JS calls this
     def cancel_upload(self):
