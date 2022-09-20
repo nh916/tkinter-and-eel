@@ -136,6 +136,7 @@ class ExcelUploaderGUI:
         """
         eel.goToLoadingScreen()
 
+        # TODO put exception handling inside of upload driver where all the other errors are
         try:
             self.excel_uploader.upload_driver(self.excel_file_path, self.data_is_public, self)
         except KeyError:
