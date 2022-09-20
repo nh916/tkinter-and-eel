@@ -139,9 +139,7 @@ class ExcelUploaderGUI:
         try:
             self.excel_uploader.upload_driver(self.excel_file_path, self.data_is_public, self)
         except KeyError:
-            print("hit keyError exception")
-            eel.goToErrorScreen()()
-            eel.addErrorsToScreen()()
+            self.display_errors("key Error")
 
     # JS calls this
     def cancel_upload(self):
@@ -176,8 +174,11 @@ class ExcelUploaderGUI:
         :param error_list: list
         :return: None
         """
-        eel.goToErrorScreen()
-        eel.addErrorsToScreen(error_list)
+
+        print("ran display_errors from python function")
+
+        eel.goToErrorScreen()()
+        eel.addErrorsToScreen()()
 
     # this calls JS
     def display_success(self, collection_url):
