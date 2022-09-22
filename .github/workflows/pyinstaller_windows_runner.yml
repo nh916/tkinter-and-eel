@@ -1,4 +1,6 @@
 name: Compile Excel Uploader GUI for Windows
+on:
+  workflow_dispatch
 jobs:
   deploy:
     runs-on: ubuntu-latest
