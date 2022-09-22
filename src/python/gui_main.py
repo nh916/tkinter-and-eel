@@ -176,7 +176,7 @@ class ExcelUploaderGUI:
         :return: None
         """
 
-        print("ran display_errors from python function")
+        print(f"display_errors his with {len(error_list)} errors")
 
         eel.goToErrorScreen()()
         eel.addErrorsToScreen()()
