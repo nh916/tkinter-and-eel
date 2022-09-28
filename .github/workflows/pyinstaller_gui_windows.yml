@@ -20,7 +20,7 @@ jobs:
       - name: cd to dist/
         run: cd dist/
       - name: print inside dir
-        run: ls -l
+        run: ls
       - name: pwd
         run: pwd
       - name: set Git credentials
