@@ -1,5 +1,6 @@
 # native imports
 import sys
+import os
 import tkinter
 from tkinter import filedialog
 
@@ -15,9 +16,14 @@ from excel_uploader_main import ExcelUploader
 
 class ExcelUploaderGUI:
     def __init__(self):
+
+        # path to put you inside of src/
+        src_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        self.web_dir = os.path.join(src_dir, "web")
+
         # initialize eel
         self.eel = eel
-        self.eel.init("../web")
+        self.eel.init(self.web_dir)
 
         self.host = None
         self.api_key = None
@@ -33,9 +39,12 @@ class ExcelUploaderGUI:
         starts the app
         :return: none
         """
+
+        html_path = os.path.join("templates", "start_screen.html")
+
         self.eel.start(
-            'templates/start_screen.html',
-            jinja_templates='templates',
+            html_path,
+            jinja_templates="templates",
             size=(800, 850),
         )
 
@@ -55,13 +64,11 @@ class ExcelUploaderGUI:
         root = tkinter.Tk()
         # root.iconbitmap("./assets/logo_condensed.ico")
         root.withdraw()
-        root.wm_attributes('-topmost', 1)
+        root.wm_attributes("-topmost", 1)
         # allows only Excel files to be selected
-        path_to_excel_file = filedialog.askopenfilename(title="Select your CRIPT Excel file",
-                                                        filetypes=(
-                                                            ("Excel file", "*.xlsx"),
-                                                        )
-                                                        )
+        path_to_excel_file = filedialog.askopenfilename(
+            title="Select your CRIPT Excel file", filetypes=(("Excel file", "*.xlsx"),)
+        )
         eel.setExcelFilePath(path_to_excel_file)
 
     # JS calls this
@@ -138,7 +145,9 @@ class ExcelUploaderGUI:
 
         # TODO put exception handling inside of upload driver where all the other errors are
         try:
-            self.excel_uploader.upload_driver(self.excel_file_path, self.data_is_public, self)
+            self.excel_uploader.upload_driver(
+                self.excel_file_path, self.data_is_public, self
+            )
         except KeyError:
             self.display_errors("key Error")
 

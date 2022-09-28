@@ -14,15 +14,4 @@ jobs:
         with:
           python-version: "3.10"
       - name: pip install dependencies
-        run: pip install -r requirements.txt
-      - name: compile with pyinstaller
-          cd ./src/python/
-          python -m eel gui_main.py ../web --onefile --noconsole --clean
-      # after executable is created with PyInstaller, push executable to "executables branch"
-      - name: push to executables branch
-        with:
-          ref: executables
-        run: |
-          git add dist/*
-          git commit "created executable"
-          git push
+        run: echo "hello world"

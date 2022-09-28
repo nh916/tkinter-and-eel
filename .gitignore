@@ -1,5 +1,11 @@
+# ignore venv
 venv/
 
+# ignore jetbrains IDE
 .idea/
 
+# ignore vscode
 .vscode/
+
+# ignore cache
+__pycache__/
