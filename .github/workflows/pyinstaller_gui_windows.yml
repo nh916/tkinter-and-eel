@@ -21,6 +21,8 @@ jobs:
         run: cd dist/
       - name: print inside dir
         run: ls -l
+      - name: pwd
+        run: pwd
       - name: set Git credentials
         run: |
           git config user.name github-actions
