@@ -17,9 +17,10 @@ jobs:
         run: pip install -r requirements.txt
       - name: compile GUI for ubuntu
         run: python -m eel .\src\python\gui_main.py .\src\web\ --onefile --noconsole --clean --icon=.\src\assets\logo_condensed.ico
-      - name: show what is in directory
-        run: ls
-      - name: show inside of dist
-        run: ls dist/
-      - name: finished compiling GUI
-        run: echo "hello world!"
+      - name: cd to dist/
+        run: cd dist/
+      - name: push executable to branch "executable"
+        run: |
+          git add .
+          git commit -m "bot pushing windows GUI executable"
+          git push origin executable
