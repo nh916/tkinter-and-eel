@@ -20,7 +20,10 @@ jobs:
       - name: cd to dist/
         run: cd dist/
       - name: print inside dir
-        run: ls -l
+        run: |
+        ls -l
+        pwd
+        
       - name: set Git credentials
         run: |
           git config user.name github-actions
