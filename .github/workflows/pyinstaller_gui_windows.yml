@@ -23,6 +23,8 @@ jobs:
         run: ls
       - name: pwd
         run: pwd
+      - name: cd to dist/
+        run: cd dist/
       - name: set Git credentials
         run: |
           git config user.name github-actions
