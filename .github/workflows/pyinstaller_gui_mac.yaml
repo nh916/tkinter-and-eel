@@ -1,4 +1,4 @@
-name: Compile GUI for Ubuntu
+name: Compile GUI for Mac
 # run this job manually
 on: workflow_dispatch
 jobs:
