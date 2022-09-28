@@ -10,6 +10,5 @@ venv/
 # ignore cache
 __pycache__/
 
-# ignore pyinstaller files
+# ignore pyinstaller build/
 build/
-dist/
