@@ -31,6 +31,7 @@ jobs:
           git config user.email github-actions@github.com
       - name: push executable to branch "executable"
         run: |
+          ls
           git add .
           git commit -m "bot pushing windows GUI executable"
           git push origin executable
