@@ -19,6 +19,10 @@ jobs:
         run: python -m eel .\src\python\gui_main.py .\src\web\ --onefile --noconsole --clean --icon=.\src\assets\logo_condensed.ico
       - name: cd to dist/
         run: cd dist/
+      - name: set Git credentials
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
       - name: push executable to branch "executable"
         run: |
           git add .
