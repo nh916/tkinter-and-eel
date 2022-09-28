@@ -1,4 +1,4 @@
-name: Compile Excel Uploader GUI for Windows
+name: Compile GUI for Ubuntu
 # run this job manually
 on: workflow_dispatch
 jobs:
@@ -18,3 +18,11 @@ jobs:
       - name: compile with pyinstaller
           cd ./src/python/
           python -m eel gui_main.py ../web --onefile --noconsole --clean
+      # after executable is created with PyInstaller, push executable to "executables branch"
+      - name: push to executables branch
+        with:
+          ref: executables
+        run: |
+          git add dist/*
+          git commit "created executable"
+          git push
