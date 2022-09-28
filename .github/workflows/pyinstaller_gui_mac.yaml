@@ -15,7 +15,7 @@ jobs:
           python-version: "3.10"
       - name: pip install dependencies
         run: pip install -r requirements.txt
-      - name: compile GUI for ubuntu
+      - name: compile GUI for Mac OS
         run: python -m eel src/python/gui_main.py src/web/ --onefile --noconsole --icon=src/assets/logo_condensed.ico
       - name: show what is in directory
         run: ls
