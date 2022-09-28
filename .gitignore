@@ -9,3 +9,7 @@ venv/
 
 # ignore cache
 __pycache__/
+
+# ignore pyinstaller files
+build/
+dist/
