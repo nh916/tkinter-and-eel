@@ -16,10 +16,16 @@ jobs:
       - name: pip install dependencies
         run: pip install -r requirements.txt
       - name: compile GUI for Mac OS
-        run: python -m eel src/python/gui_main.py src/web/ --onefile --noconsole --icon=src/assets/logo_condensed.ico
-      - name: show what is in directory
-        run: ls
-      - name: show inside of dist
-        run: ls dist/
-      - name: finished compiling GUI
-        run: echo "hello world!"
+        run: python -m eel src/python/gui_main.py src/web/ --onefile --noconsole --name excel_uploader_gui_windows --icon=src/assets/logo_condensed.ico
+      - name: set Git credentials
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+      - name: push executable to branch "executable"
+        run: |
+          cd dist/
+          ls
+          git checkout executables
+          git add .
+          git commit -m "bot pushing windows GUI executable"
+          git push origin executable
