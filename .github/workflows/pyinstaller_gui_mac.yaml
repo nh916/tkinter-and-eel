@@ -17,16 +17,11 @@ jobs:
         run: pip install -r requirements.txt
       - name: compile GUI for Mac OS
         run: python -m eel src/python/gui_main.py src/web/ --onefile --noconsole --name excel_uploader_gui_mac --icon=src/assets/logo_condensed.ico
-      - name: set Git credentials
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-      - name: push executable to branch "executable"
         run: |
           cd dist/
           ls
           pwd
-          git checkout executables
-          git add .
-          git commit -m "bot pushing mac GUI executable"
-          git push origin executable
+        - uses: actions/download-artifact@v3
+          with:
+            name: download compiled GUI
+            path: /Users/runner/work/tkinter-and-eel/tkinter-and-eel/dist/
