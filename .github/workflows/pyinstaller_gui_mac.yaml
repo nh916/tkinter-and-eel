@@ -21,7 +21,7 @@ jobs:
           cd dist/
           ls
           pwd
-        - uses: actions/download-artifact@v3
-          with:
-            name: download compiled GUI
-            path: /Users/runner/work/tkinter-and-eel/tkinter-and-eel/dist/
+      - uses: actions/download-artifact@v3
+        with:
+          name: download compiled GUI
+          path: /Users/runner/work/tkinter-and-eel/tkinter-and-eel/dist/
