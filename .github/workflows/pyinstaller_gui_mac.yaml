@@ -25,6 +25,7 @@ jobs:
         run: |
           cd dist/
           ls
+          pwd
           git checkout executables
           git add .
           git commit -m "bot pushing mac GUI executable"
