@@ -16,7 +16,7 @@ jobs:
       - name: pip install dependencies
         run: pip install -r requirements.txt
       - name: compile GUI for ubuntu
-        run: python -m eel src/python/gui_main.py src/web/ --onefile --noconsole --name excel_uploader_gui_windows --icon=src/assets/logo_condensed.ico
+        run: python -m eel src/python/gui_main.py src/web/ --onefile --noconsole --name excel_uploader_gui_linux --icon=src/assets/logo_condensed.ico
       - name: set Git credentials
         run: |
           git config user.name github-actions
@@ -27,5 +27,5 @@ jobs:
           ls
           git checkout executables
           git add .
-          git commit -m "bot pushing windows GUI executable"
+          git commit -m "bot pushing linux GUI executable"
           git push origin executable
