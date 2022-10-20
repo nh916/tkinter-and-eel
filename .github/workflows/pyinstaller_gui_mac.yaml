@@ -17,11 +17,11 @@ jobs:
         run: pip install -r requirements.txt
       - name: compile GUI for Mac OS
         run: python -m eel src/python/gui_main.py src/web/ --onefile --noconsole --name excel_uploader_gui_mac --icon=src/assets/logo_condensed.ico
-        run: |
-          cd dist/
-          ls
-          pwd
-    - uses: actions/download-artifact@v3
-      with:
-        name: download compiled GUI
-        path: /Users/runner/work/tkinter-and-eel/tkinter-and-eel/dist/
+        # run: |
+        #   cd dist/
+        #   ls
+        #   pwd
+      - uses: actions/download-artifact@v3
+        with:
+          name: download compiled GUI
+          path: /Users/runner/work/tkinter-and-eel/tkinter-and-eel/dist/
