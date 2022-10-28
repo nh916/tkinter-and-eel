@@ -22,21 +22,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           # artifact name
-          name: "CRIPT Excel Uploader"
-          run: |
-            cd dist/
-            ls
-            pwd
+          name: CRIPT Excel Uploader
           path: dist/
           if-no-files-found: error
-
           retention-days: 10
-
-      - name: push executable to branch "executable"
-        run: |
-          cd dist/
-          ls
-          git checkout executables
-          git add .
-          git commit -m "bot pushing windows GUI executable"
-          git push origin executable
