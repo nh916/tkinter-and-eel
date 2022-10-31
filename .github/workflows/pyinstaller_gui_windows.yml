@@ -18,12 +18,11 @@ jobs:
       - name: compile GUI for Windows
         run: python -m eel .\src\python\gui_main.py .\src\web\ --onefile --noconsole --clean --name excel_uploader_gui_windows --icon=.\src\assets\logo_condensed.ico
 
-      # - name: Upload the compiled GUI
+      - name: Save compiled GUI
       - uses: actions/upload-artifact@v3
         with:
           # artifact name
-          name: CRIPT Excel Uploader Windows
+          name: CRIPT Excel Uploader Windows Zip
           path: dist/
-          # if-no-files-found: error
-
-          # retention-days: 10
+          if-no-files-found: error
+          retention-days: 10
