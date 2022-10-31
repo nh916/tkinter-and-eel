@@ -24,5 +24,5 @@ jobs:
           # artifact name
           name: CRIPT Excel Uploader Windows Zip
           path: dist/
-          if-no-files-found: error
+          # if-no-files-found: error
           retention-days: 10
