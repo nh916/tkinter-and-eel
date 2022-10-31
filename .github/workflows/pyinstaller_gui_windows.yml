@@ -22,7 +22,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           # artifact name
-          name: gui_windows
+          name: CRIPT Excel Uploader Windows
           path: dist/
           # if-no-files-found: error
 
