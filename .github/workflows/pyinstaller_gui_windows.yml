@@ -1,6 +1,13 @@
 name: Compile GUI for Windows
 # run this job manually
-on: workflow_dispatch
+on: 
+  push:
+    tags:
+      # Push events to every tag including hierarchical tags like v1.0/beta
+      - '**'
+
+# Allows you to run this workflow manually too
+  workflow_dispatch:
 jobs:
   deploy:
     runs-on: windows-latest
